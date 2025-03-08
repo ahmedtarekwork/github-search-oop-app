@@ -1,0 +1,140 @@
+h1 {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  padding-bottom: 12px;
+}
+
+form > div {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+
+  & button {
+    flex-grow: 1;
+  }
+
+  & input {
+    flex: 1;
+    flex-grow: 100;
+    max-width: 100%;
+  }
+}
+
+#render-user-info {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  #render-user-info {
+    flex-direction: column;
+  }
+}
+
+/* left side */
+#user-info-holder > * + * {
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  #user-info-holder {
+    flex-basis: 30%;
+    max-width: 30%;
+    height: fit-content;
+    position: sticky;
+    top: 10px;
+    left: 0;
+  }
+}
+
+#person-info-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#person-info-holder img {
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  #person-info-holder {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+#user-real-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.url-holder a {
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#user-profile-created-at-date {
+  font-weight: bold;
+}
+
+/* right side */
+#repos-holder {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  #repos-holder:has(.repo-name) {
+    border-left: 1px solid var(--main-clr);
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  #repos-holder:has(.repo-name) {
+    padding-top: 10px;
+    border-top: 1px solid var(--main-clr);
+  }
+}
+
+#repos-list > li {
+  border-radius: var(--radius);
+  border: 2px solid var(--secondary-clr);
+  padding: 7px;
+  background: hsla(240, 46.1%, 48%, 0.11);
+
+  & + * {
+    margin-top: 8px;
+  }
+
+  & > * + * {
+    margin-top: 8px;
+  }
+}
+
+.repo-name a {
+  color: var(--secondary-clr);
+  transition: 0.25s;
+
+  &:hover {
+    color: var(--light-clr);
+  }
+}
+
+#repos-list li *:not(.btns-holder) i {
+  color: var(--secondary-clr);
+}
+#repos-list li .btns-holder i {
+  color: #fff;
+}
+
+:is(.repo-default-branch, .repo-watches-count) i {
+  margin-right: 10px;
+}
+
+.repo-created-at {
+  font-weight: bold;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- highlight.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/typescript.min.js"></script>
+
+    <!-- Global CSS Styles -->
+    <link rel="stylesheet" href="./src/global.css" />
+
+    <!-- CSS Components -->
+    <link rel="stylesheet" href="./src/cssComponents/button.css" />
+    <link rel="stylesheet" href="./src/cssComponents/pagePath.css" />
+
+    <!-- main CSS styles -->
+    <link rel="stylesheet" href="./src/pages/renderBlobPage/style.css" />
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const title = urlParams.get("repoName") || "";
+      const repoURL = urlParams.get("repoURL") || "";
+      const fileName = urlParams.get("fileName") || "";
+      const treeUrl = urlParams.get("treeUrl") || "";
+
+      window.onload = function () {
+        if (fileName) document.title = fileName;
+      };
+
+      window.addEventListener("DOMContentLoaded", function () {
+        if (title && fileName) {
+          const redirectToRepoPageBtn = document.createElement("a");
+          redirectToRepoPageBtn.textContent = title.split("/")[1];
+          redirectToRepoPageBtn.href = `repoPage.html?url=${repoURL}&repoName=${title}&treeUrl=${treeUrl}`;
+
+          const pageTitle = document.getElementById("page-title");
+          pageTitle.append(
+            title.split("/")[0],
+            " / ",
+            redirectToRepoPageBtn,
+            " / ",
+            fileName.replaceAll("/", " / ")
+          );
+        }
+      });
+    </script>
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html">
+          <img src="./favicon.svg" alt="app logo" width="50" height="50" />
+          <p>Github Search</p>
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 id="page-title" class="page-path"></h1>
+    </main>
+
+    <footer>
+      made by <a href="https://ahmed-profile.vercel.app">Ahmed Tarek</a>
+    </footer>
+
+    <script type="module" src="./src/pages/renderBlobPage/main.ts"></script>
+  </body>
+</html>

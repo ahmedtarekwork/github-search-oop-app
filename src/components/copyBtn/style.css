@@ -1,0 +1,7 @@
+.copy-to-clipboard-btn i {
+  transition: 0.25s;
+
+  &.fa-clipboard-check {
+    color: #98ff69;
+  }
+}

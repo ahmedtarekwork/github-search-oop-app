@@ -1,0 +1,19 @@
+.url-holder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  & i {
+    color: var(--secondary-clr);
+  }
+
+  & a {
+    color: var(--main-clr);
+    transition: 0.25s;
+
+    &:hover {
+      color: var(--light-clr);
+    }
+  }
+}

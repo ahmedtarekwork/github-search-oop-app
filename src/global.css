@@ -1,0 +1,136 @@
+:root {
+  --main-clr: #13133c;
+  --secondary-clr: #4242b3;
+  --light-clr: #8c8cea;
+  --radius: 4px;
+
+  --trans-clr: hsla(240, 52%, 15%, 0.377);
+  --secondary-trans-clr: hsla(240, 46%, 48%, 0.377);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--main-clr);
+  padding: 8px 0;
+
+  & a {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+    width: fit-content;
+    padding: 4px;
+
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+main {
+  flex: 1;
+  margin: 17px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  main {
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: var(--main-clr);
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  & a {
+    color: #fff;
+  }
+}
+
+button {
+  text-underline-offset: 6px;
+  font-size: 16px;
+}
+
+input {
+  border-radius: var(--radius);
+  outline: none;
+  border: 1px solid var(--secondary-clr);
+  padding: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  caret-color: var(--light-clr);
+  transition: 0.25s;
+
+  &::placeholder {
+    color: var(--secondary-clr);
+    transition: 0.25s;
+  }
+
+  &:focus {
+    border-color: var(--light-clr);
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+a:not(.btn, header a) {
+  text-underline-offset: 6px;
+  padding-bottom: 6px;
+  display: inline-block;
+  line-height: 25px;
+}
+
+li {
+  list-style: none;
+}

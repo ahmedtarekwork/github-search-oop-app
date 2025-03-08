@@ -1,0 +1,80 @@
+.sub-commits-holder {
+  & + * {
+    margin-top: 10px;
+  }
+
+  & > h2 {
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    padding-bottom: 7px;
+    line-height: 34px;
+  }
+}
+.commits-list {
+  margin-top: 10px;
+  & > * + * {
+    margin-top: 10px;
+  }
+}
+
+.commit {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: var(--radius);
+
+  &:nth-of-type(odd) {
+    background: var(--secondary-trans-clr);
+  }
+  &:nth-of-type(even) {
+    background: var(--trans-clr);
+  }
+}
+
+/* right side */
+
+.commit-slice-right-side {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sha-content {
+  align-self: center;
+  background-color: var(--secondary-clr);
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 100vw;
+  font-size: 14px;
+}
+
+/* left side */
+
+.commit-message {
+  margin-bottom: 7px;
+  text-decoration: none;
+  color: var(--main-clr);
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.commit-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  & img {
+    border-radius: 100%;
+  }
+}
+
+/* .commit-slice-left-side {
+
+} */

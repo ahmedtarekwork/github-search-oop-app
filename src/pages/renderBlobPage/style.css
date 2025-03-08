@@ -1,0 +1,72 @@
+main:not(:has(img, video)) {
+  min-height: 700px;
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+img {
+  width: fit-content;
+  margin: auto;
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+#code-header {
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 15px;
+  border-bottom: 1px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+#code-header p i {
+  margin-right: 7px;
+}
+
+pre {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+#secondary-holder {
+  position: absolute;
+  inset: 0;
+  padding: 0px 15px 7px;
+  display: flex;
+  overflow: auto;
+}
+
+#line-numbers {
+  text-align: right;
+  padding-right: 1em;
+  border-right: 1px solid #555;
+  user-select: none;
+}
+
+pre code.hljs {
+  padding: 0;
+  padding-left: 16px;
+  flex: 1;
+}
+
+#line-numbers,
+pre code.hljs {
+  min-height: 100%;
+  height: max-content;
+  padding-top: 10px;
+}
+
+.download-video-btn {
+  margin-top: 10px;
+  width: fit-content;
+}

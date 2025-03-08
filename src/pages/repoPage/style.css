@@ -1,0 +1,120 @@
+#main-content-holder {
+  display: flex;
+  gap: 10px;
+}
+
+#left-side {
+  flex-grow: 1;
+  flex-basis: 70%;
+  max-width: 70%;
+}
+
+#left-side > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border-left: 3px solid var(--main-clr);
+  background: var(--trans-clr);
+  padding: 10px;
+  font-weight: bold;
+
+  & img {
+    border-radius: 100%;
+  }
+}
+
+.tree-list {
+  background: var(--main-clr);
+  padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+
+  & .tree-list {
+    box-shadow: 0 0 10px -6px #fff;
+    margin-top: 10px;
+  }
+}
+
+.tree-list li {
+  background: var(--secondary-trans-clr);
+  border-radius: var(--radius);
+  padding: 10px;
+  flex-direction: column;
+
+  & + * {
+    margin-top: 10px;
+  }
+}
+
+.tree-list :is(button, a) {
+  color: #fff;
+  text-decoration: none;
+  padding: 0;
+
+  & i {
+    margin-right: 7px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  padding-bottom: 6px;
+  display: block;
+  line-height: 25px;
+}
+
+a {
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  width: fit-content;
+}
+
+/* right side */
+
+#right-side {
+  flex-basis: 30%;
+  max-width: 30%;
+}
+
+#right-side > * + * {
+  margin-top: 10px;
+  border-top: 1px solid var(--main-clr);
+  padding-top: 10px;
+}
+
+#right-side h2 {
+  text-underline-offset: 6px;
+  text-decoration: underline;
+  padding-bottom: 12px;
+}
+
+#right-side > *:not(.btns-holder) i {
+  color: var(--secondary-clr);
+}
+
+:is(#main-branch-section, #views-section) i {
+  margin-right: 10px;
+}
+
+#repo-date {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #main-content-holder {
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+}

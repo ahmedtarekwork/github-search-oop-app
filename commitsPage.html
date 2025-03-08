@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Global CSS Styles -->
+    <link rel="stylesheet" href="./src/global.css" />
+
+    <!-- CSS Components -->
+    <link rel="stylesheet" href="./src/cssComponents/button.css" />
+    <link rel="stylesheet" href="./src/cssComponents/pagePath.css" />
+
+    <!-- main CSS styles -->
+    <link rel="stylesheet" href="./src/pages/commitsPage/styles.css" />
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const title = urlParams.get("repoName") || "";
+      const repoURL = urlParams.get("repoURL") || "";
+
+      window.onload = function () {
+        if (title) document.title = title + " commits";
+      };
+      window.addEventListener("DOMContentLoaded", function () {
+        if (title) {
+          const redirectToRepoPageBtn = document.createElement("a");
+          redirectToRepoPageBtn.textContent = title.split("/")[1];
+          redirectToRepoPageBtn.href = `repoPage.html?url=${repoURL}&repoName=${title}`;
+
+          const pageTitle = document.getElementById("page-title");
+          pageTitle.append(
+            "  for: ",
+            title.split("/")[0],
+            " / ",
+            redirectToRepoPageBtn
+          );
+          pageTitle.classList.add("page-path");
+        }
+      });
+    </script>
+
+    <title>commits</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html">
+          <img src="./favicon.svg" alt="app logo" width="50" height="50" />
+          <p>Github Search</p>
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 id="page-title">commits</h1>
+      <div id="commits-holder"></div>
+    </main>
+
+    <footer>
+      made by <a href="https://ahmed-profile.vercel.app">Ahmed Tarek</a>
+    </footer>
+
+    <script type="module" src="./src/pages/commitsPage/main.ts"></script>
+  </body>
+</html>

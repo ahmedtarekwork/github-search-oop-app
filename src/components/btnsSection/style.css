@@ -1,0 +1,18 @@
+.btns-holder {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: max-content;
+
+  & > li {
+    flex: 1;
+    display: flex;
+
+    & > * {
+      width: 100%;
+      min-width: max-content;
+    }
+  }
+}
