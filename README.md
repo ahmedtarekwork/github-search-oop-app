@@ -10,3 +10,17 @@ This app I made with vanilla javascript to search in github user profiles, types
 - show more info about each repo inside repo page
 
 **Live Preview:** https://github-search-oop.netlify.app
+
+
+# Run Project On Your Local Machine
+- clone the repo or download the files of the project
+
+- install dependencies that project stands on
+```
+  npm install
+```
+
+- run this command to make a local server on your machine to run the project
+```
+  npm run dev
+```
