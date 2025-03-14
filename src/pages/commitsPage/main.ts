@@ -232,4 +232,4 @@ class CommitsUI extends SingleCommitUI {
   }
 }
 
-new CommitsUI(new CopyBtn().generateCopyBtn);
+new CommitsUI(new CopyBtn().generateCopyBtn.bind(new CopyBtn()));

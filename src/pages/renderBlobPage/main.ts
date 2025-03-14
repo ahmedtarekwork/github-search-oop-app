@@ -263,4 +263,4 @@ class UI extends Methods {
   }
 }
 
-new UI(new CopyBtn().generateCopyBtn);
+new UI(new CopyBtn().generateCopyBtn.bind(new CopyBtn()));

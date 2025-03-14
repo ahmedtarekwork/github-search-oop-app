@@ -27,8 +27,9 @@ type GetTreeFnParams = (
 
 const searchParams = new URLSearchParams(location.search);
 const repoURL = searchParams.get("url") || "";
-
 const commitTreeUrl = searchParams.get("treeUrl") || "";
+const commitSha = searchParams.get("sha") || "";
+console.log(commitSha);
 
 class Repo {
   constructor() {}
@@ -192,8 +193,22 @@ class RepoLeftSideUI extends ReposLeftSide {
     login,
   }: Pick<UserType, "avatar_url" | "login">) {
     const holder = document.createElement("div");
+    holder.id = "author-section";
 
-    holder.append(generateUserAvatar(avatar_url), login);
+    const authorInfoHolder = document.createElement("div");
+    authorInfoHolder.id = "author-info-holder";
+    authorInfoHolder.append(generateUserAvatar(avatar_url), login);
+
+    holder.append(authorInfoHolder);
+
+    if (commitSha) {
+      const sha = document.createElement("p");
+      sha.id = "sha-content";
+      sha.textContent = commitSha.slice(0, 6);
+
+      holder.append(sha);
+    }
+
     return holder;
   }
 }

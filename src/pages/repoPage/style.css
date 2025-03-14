@@ -9,8 +9,9 @@
   max-width: 70%;
 }
 
-#left-side > div {
+#author-section {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 7px;
   flex-wrap: wrap;
@@ -21,8 +22,24 @@
   padding: 10px;
   font-weight: bold;
 
-  & img {
-    border-radius: 100%;
+  & #author-info-holder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+
+    & img {
+      border-radius: 100%;
+    }
+  }
+
+  & #sha-content {
+    background-color: var(--secondary-clr);
+    color: #fff;
+    padding: 5px 7px;
+    border-radius: 100vw;
+    font-size: 14px;
   }
 }
 

@@ -4,7 +4,6 @@
   align-items: stretch;
   flex-wrap: wrap;
   width: 100%;
-  min-width: max-content;
 
   & > li {
     flex: 1;

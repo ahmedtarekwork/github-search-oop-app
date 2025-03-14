@@ -5,9 +5,9 @@ type ParamsType = Record<"btnContent" | "className" | "copyContent", string>;
 export type GenerateCopyBtnFnType = (params: ParamsType) => HTMLButtonElement;
 
 export default class CopyBtn {
-  private _timeOut: ReturnType<typeof setTimeout>;
+  private _timeouts: Map<HTMLButtonElement, ReturnType<typeof setTimeout>>;
   constructor() {
-    this._timeOut = 0;
+    this._timeouts = new Map();
   }
 
   public generateCopyBtn({ btnContent, className, copyContent }: ParamsType) {
@@ -27,23 +27,27 @@ export default class CopyBtn {
   }
 
   private async _handleClick(btn: HTMLButtonElement, copyContent: string) {
-    clearTimeout(this._timeOut);
+    const existingTimeout = this._timeouts.get(btn);
+    if (existingTimeout) {
+      clearTimeout(existingTimeout);
+      this._timeouts.delete(btn);
+    }
 
     const icon =
       btn.querySelector(".fa-clipboard") ||
       btn.querySelector(".fa-clipboard-check");
-
-    if (icon) icon.className = "fa-solid fa-clipboard";
 
     try {
       await navigator.clipboard.writeText(copyContent);
 
       icon!.className = "fa-solid fa-clipboard-check";
 
-      this._timeOut = setTimeout(
-        () => (icon!.className = "fa-solid fa-clipboard"),
-        2500
-      );
+      const newTimeout = setTimeout(() => {
+        icon!.className = "fa-solid fa-clipboard";
+        this._timeouts.delete(btn);
+      }, 2500);
+
+      this._timeouts.set(btn, newTimeout);
     } catch (_) {}
   }
 }
